@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+
+
+
+
+<script type="text/javascript">
+
+	
+	
+	var title = document.createElement("title");
+	var hello = document.createTextNode("hello");
+	title.appendChild(hello);
+	document.head.appendChild(title);
+	
+	document.body = document.createElement("body");
+
+	var x = document.createElement("div"); // Create a <p> element
+	x.setAttribute('id', "div1");
+//	var t = document.createTextNode("testing"); // Create a text node
+//	x.appendChild(t); // Append the text to <p>
+	document.body.appendChild(x); // Append <p> to <body>
+	
+	var p1 = document.createElement("p");
+	p1.setAttribute('id', "p1")
+	var t = document.createTextNode("This is a Paragragh."); // Create a text node
+	p1.appendChild(t);
+	var element = document.getElementById("div1");
+	element.appendChild(p1);
+	
+	var p2 = document.createElement("p");
+	p2.setAttribute('id', "p2")
+	var t = document.createTextNode("This is another Paragragh."); // Create a text node
+	p2.appendChild(t);
+	var element = document.getElementById("div1");
+	element.appendChild(p2);
+	
+	var test = document.createElement("a");
+	var inside = document.createTextNode("google"); 
+	test.setAttribute('href', "http://google.com");
+	test.appendChild(inside);
+	var element = document.getElementById("div1");
+	element.appendChild(test);
+	
+	var brk = document.createElement("p");
+	var element = document.getElementById("div1");
+	element.appendChild(brk);
+
+	var image = document.createElement("img"); 
+	image.setAttribute('src', "https://ssl.pstatic.net/tveta/libs/1327/1327542/b0024043079f3ad40720_20201130103937804_4.jpg");
+	var element = document.getElementById("div1");
+	element.appendChild(image);
+	
+	
+</script>
+
+</html>

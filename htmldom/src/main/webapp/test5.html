@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+
+
+
+
+<script type="text/javascript">
+
+	
+	
+	var title = document.createElement("title");
+	var hello = document.createTextNode("hello");
+	title.appendChild(hello);
+	document.head.appendChild(title);
+	
+	document.body = document.createElement("body");
+
+	var x = document.createElement("div");
+	document.body.appendChild(x);
+	
+	var p1 = document.createElement("p");
+	p1.setAttribute('id', "p1")
+	var t = document.createTextNode("This is a Paragragh."); // Create a text node
+	p1.appendChild(t);
+	x.appendChild(p1);
+	
+	var p2 = document.createElement("p");
+	p2.setAttribute('id', "p2")
+	var t = document.createTextNode("This is another Paragragh."); // Create a text node
+	p2.appendChild(t);
+	x.appendChild(p2);
+	
+	
+	var test = document.createElement("a");
+	var inside = document.createTextNode("google"); 
+	test.setAttribute('href', "http://google.com");
+	test.appendChild(inside);
+	x.appendChild(test);
+	
+	var brk = document.createElement("p");
+	x.appendChild(brk);
+
+	var image = document.createElement("img"); 
+	image.setAttribute('src', "https://ssl.pstatic.net/tveta/libs/1327/1327542/b0024043079f3ad40720_20201130103937804_4.jpg");
+	x.appendChild(image);
+	
+	var p = document.createElement("p");
+	var t = document.createTextNode("tesing relationship with div"); // Create a text node
+	p.appendChild(t);
+	document.body.appendChild(p);
+	
+	
+</script>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>테스트</title>
+<script type="text/javascript">
+
+	var obj, dbParam, xmlhttp, myObj, x, txt = "";
+	  xmlhttp = new XMLHttpRequest();
+	  xmlhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	      myObj = JSON.parse(this.responseText);
+	      txt += "<table border='1'>"
+	      txt += "<tr><th>no</th><th>user_no</th><th>title</th><th>group_no</th><th>order_no</th><th>depth</th><th>contents</th><th>reg_date</th><th>cnt</th></tr>"
+	      for (x in myObj) {
+	        txt += "<tr><td>"+ myObj[x].no+"</td>"+"<td>"+ myObj[x].user_no+"</td>"+"<td>"+ myObj[x].title+"</td>"+"<td>"+ myObj[x].group_no+"</td>"+"<td>"+ myObj[x].order_no+"</td>"+"<td>"+myObj[x].depth+"</td>"+"<td>"+ myObj[x].contents+"</td>"+"<td>"+ myObj[x].reg_date+"</td>"+"<td>"+myObj[x].cnt+"</td></tr>";
+	      }
+	      txt += "</table>"    
+	      document.getElementById("demo").innerHTML = txt;
+	      }
+	    };
+	xmlhttp.open("GET", "http://localhost:8080/htmldom/Json4.jsp", true);
+	 xmlhttp.send();
+
+</script>
+</head>
+<body>
+	<h1>DB(Mysql)에 저장된 정보를 JSON으로 변경해서 출력</h1>
+
+	<p id="demo"></p>

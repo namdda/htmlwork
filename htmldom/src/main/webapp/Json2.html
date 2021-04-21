@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Make a drop down list based on JSON data.</h2>
+
+<p id="demo"></p>
+
+<script>
+var obj, dbParam, xmlhttp, myObj, x, txt = "";
+obj = {table:"name",limit:20};
+dpParam =JSON.stringify(obj);
+xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    myObj = JSON.parse(this.responseText);
+    txt += "<table border='1'>"
+    for (x in myObj) {
+      txt += "<tr><td>" + myObj[x] + "</td></tr>";
+    }
+    txt += "</table>"
+    document.getElementById("demo").innerHTML = txt;
+  }
+}
+xmlhttp.open("GET", "http://localhost:8080/htmldom/sample.json", true);
+xmlhttp.send();
+
+</script>
+
+</body>

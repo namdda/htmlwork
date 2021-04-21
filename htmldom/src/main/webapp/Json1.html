@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+  <html>
+  <body>
+
+  <h2>The XMLHttpRequest Object</h2>
+
+  <table id="demo" border="1">
+    <tr>
+                <th>TITLE</th>
+                <th>ARTIST</th>
+        <th>COUNTRY</th>
+        <th>COMPANY</th>
+        <th>PRICE</th>
+        <th>YEAR</th>
+        </tr>
+  </table>
+
+  <script>
+  var xhttp, xmlDoc, txt, title, i;
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      xmlDoc = this.responseXML;
+      txt = "";
+      var ptable = document.getElementById("demo");
+
+      title = xmlDoc.getElementsByTagName("TITLE");
+      var artist = xmlDoc.getElementsByTagName("ARTIST");
+      var country=xmlDoc.getElementsByTagName("COUNTRY");
+      var company=xmlDoc.getElementsByTagName("COMPANY");
+      var price =xmlDoc.getElementsByTagName("PRICE");
+      var year =xmlDoc.getElementsByTagName("YEAR");
+
+     for (i = 0; i < title.length; i++) {
+        var tr = document.createElement("tr");
+        ptable.appendChild(tr);
+
+        var titletd =document.createElement("td");
+        txt = title[i].childNodes[0].nodeValue;
+        titletd.append(txt);
+        tr.appendChild(titletd);
+
+        var arttd =document.createElement("td");
+        txt = artist[i].childNodes[0].nodeValue;
+        arttd.append(txt);
+        tr.appendChild(arttd);
+
+        var countrytd =document.createElement("td");
+        txt= country[i].childNodes[0].nodeValue;
+        countrytd.append(txt);
+        tr.appendChild(countrytd);
+
+
+        var companytd =document.createElement("td");
+        txt= company[i].childNodes[0].nodeValue;
+        companytd.append(txt);
+        tr.appendChild(companytd);
+
+        var pricetd =document.createElement("td");
+        txt= price[i].childNodes[0].nodeValue;
+        pricetd.append(txt);
+        tr.appendChild(pricetd);
+
+        var yeartd =document.createElement("td");
+        txt= year[i].childNodes[0].nodeValue;
+        yeartd.append(txt);
+        tr.appendChild(yeartd);
+
+     }
+
+
+
+    }
+  };
+  xhttp.open("GET", "cd_catalog.xml", true);
+  xhttp.send();
+  </script>
+
+  </body>
+  </html>
